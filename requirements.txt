@@ -2,4 +2,4 @@ torch
 scikit-learn
 matplotlib
 seaborn
-numpy=1.20.3
+numpy=1.23.4
