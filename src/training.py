@@ -143,6 +143,9 @@ if __name__ == "__main__":
         print("Please check the Data Path ")
         sys.exit()
 
+    print("Empty the cache")
+    torch.cuda.empty_cache()
+    print("Emptied!")
     # Pramters used for the training DL model and hyperparameter Tuning
     BATCH_SIZE = 10
     TARGET_TRAINING_ACCURACY = 1.0
@@ -170,7 +173,9 @@ if __name__ == "__main__":
 
     # Model Training
     # Intitalization of DL architechture along with optimizer and loss function
+    print("Model Training")
     model = CustomVGG()
+    print("Finished CustomVGG")
     class_weight = torch.tensor(class_weight).type(torch.FloatTensor).to(DEVICE)
     criterion = nn.CrossEntropyLoss(weight=class_weight)
     optimizer = optim.Adam(model.parameters(), lr=LR)

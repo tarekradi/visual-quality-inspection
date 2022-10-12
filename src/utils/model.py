@@ -21,8 +21,11 @@ class CustomVGG(nn.Module):
     """
 
     def __init__(self, n_classes=2):
+        print("Inside init")
         super().__init__()
+        print("Feature Extractor")
         self.feature_extractor = models.vgg16(pretrained=True).features[:-1]
+        print("Classification")
         self.classification_head = nn.Sequential(
             nn.MaxPool2d(kernel_size=2, stride=2),
             nn.AvgPool2d(
@@ -37,10 +40,12 @@ class CustomVGG(nn.Module):
         # self._freeze_params()
 
     def _freeze_params(self):
+        print("Inside freeze params")
         for param in self.feature_extractor[:23].parameters():
             param.requires_grad = False
 
     def forward(self, x_in):
+        print("forward")
         """
         forward
         """
