@@ -173,15 +173,15 @@ if __name__ == "__main__":
 
     # Model Training
     # Intitalization of DL architechture along with optimizer and loss function
-    print("Model Training")
     model = CustomVGG()
-    print("Finished CustomVGG")
+    print("Finished loading the CustomVGG model.")
     class_weight = torch.tensor(class_weight).type(torch.FloatTensor).to(DEVICE)
     criterion = nn.CrossEntropyLoss(weight=class_weight)
     optimizer = optim.Adam(model.parameters(), lr=LR)
 
     # Training module
     start_time = time.time()
+    print("Training")
     model = train(
         train_loader, model, optimizer, criterion, EPOCHS,
         DEVICE, TARGET_TRAINING_ACCURACY, data_aug=data_aug)
