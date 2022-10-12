@@ -188,6 +188,7 @@ if __name__ == "__main__":
     train_time = time.time()-start_time
 
     # Model Saving
+    print("Saving the Model")
     model_path = f"{subset_name}_model.h5"
     torch.save(model, model_path)
     if not intel_flag:
