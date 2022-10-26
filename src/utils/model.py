@@ -45,7 +45,6 @@ class CustomVGG(nn.Module):
             param.requires_grad = False
 
     def forward(self, x_in):
-        print("forward")
         """
         forward
         """

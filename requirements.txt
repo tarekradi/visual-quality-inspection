@@ -3,3 +3,4 @@ scikit-learn
 matplotlib
 seaborn
 numpy>=1.20.3
+torchvision
